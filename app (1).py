@@ -46,6 +46,10 @@ experience = st.slider("Years of Experience", 0, 50, 1)
 
 
 input_data = np.array([[experience]])
+st.write("Input data shape:", input_data.shape)
+st.write("Input data:", input_data)
+st.write("Model expects:", model.n_features_in_, "features")
+
 
 # Predict and display result
 if st.button("Predict Salary"):
