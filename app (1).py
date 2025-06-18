@@ -42,14 +42,10 @@ st.write("Fill the information below to predict the salary:")
 # --- Example Input Fields ---
 # You should update these according to your model's input features
 experience = st.slider("Years of Experience", 0, 50, 1)
-education_level = st.selectbox("Education Level", ["High School", "Bachelor's", "Master's", "PhD"])
-location = st.selectbox("Job Location", ["Urban", "Suburban", "Rural"])
 
-# --- Convert categorical inputs to numerical if needed ---
-education_mapping = {"High School": 0, "Bachelor's": 1, "Master's": 2, "PhD": 3}
-location_mapping = {"Urban": 0, "Suburban": 1, "Rural": 2}
 
-input_data = np.array([[experience,education,location]])
+
+input_data = np.array([[experience]])
 
 # Predict and display result
 if st.button("Predict Salary"):
