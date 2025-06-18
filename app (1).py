@@ -56,7 +56,7 @@ location = st.selectbox("Job Location", ["Urban", "Suburban", "Rural"])
 education_mapping = {"High School": 0, "Bachelor's": 1, "Master's": 2, "PhD": 3}
 location_mapping = {"Urban": 0, "Suburban": 1, "Rural": 2}
 
-input_data = np.array([[experience]])
+input_data = np.array([[experience,education,location]])
 
 # Predict and display result
 if st.button("Predict Salary"):
