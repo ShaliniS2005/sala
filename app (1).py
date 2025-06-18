@@ -7,11 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1luS5_9Pu6kGiqvWUuC30bc8EmGkeCbFt
 """
 
-
-import streamlit as st
-import pickle
-import numpy as np
-
 import streamlit as st
 import pickle
 import numpy as np
@@ -23,35 +18,17 @@ with open("model.pkl", "rb") as file:
 st.title("Salary Prediction App")
 st.write("Fill the information below to predict the salary:")
 
-# --- Example Input Fields ---
-# You should update these according to your model's input features
-experience = st.slider("Years of Experience", 0, 50, 1)
+# --- Input field ---
+experience = st.slider("Years of Experience", 0, 50, 1, key="exp_slider")
 
-
-# --- Convert categorical inputs to numerical if needed ---
-
-input_data = np.array([experience])
-
-# Predict and display result
-if st.button("Predict Salary"):
-    salary = model.predict(input_data)
-    st.success(f"Predicted Salary: ₹{salary[0]:,.2f}")
-st.title("Salary Prediction App")
-st.write("Fill the information below to predict the salary:")
-
-# --- Example Input Fields ---
-# You should update these according to your model's input features
-experience = st.slider("Years of Experience", 0, 50, 1)
-
-
-
+# --- Prepare input data (2D array) ---
 input_data = np.array([[experience]])
+
+# --- Debug info (optional) ---
 st.write("Input data shape:", input_data.shape)
-st.write("Input data:", input_data)
 st.write("Model expects:", model.n_features_in_, "features")
 
-
-# Predict and display result
-if st.button("Predict Salary"):
+# --- Predict and display result ---
+if st.button("Predict Salary", key="predict_btn"):
     salary = model.predict(input_data)
     st.success(f"Predicted Salary: ₹{salary[0]:,.2f}")
